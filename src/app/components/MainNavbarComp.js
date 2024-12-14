@@ -6,7 +6,6 @@ const MainNavbarComp = () => {
         <Navbar isBordered>
             <NavbarContent justify="start">
                 <NavbarBrand>
-                    {/* <AcmeLogo /> */}
                     <p className="hidden sm:block font-bold text-inherit">AwesomeIMDB</p>
                 </NavbarBrand>
                 <NavbarContent as="div" className="items-center">
