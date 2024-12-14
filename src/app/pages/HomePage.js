@@ -6,12 +6,12 @@ import { Card, CardHeader, CardFooter, Image, Button, Input } from "@nextui-org/
 import { SearchIcon } from "../assets/svg/SearchIcon";
 
 const HomePage = () => {
-	const movieNameTags = ['patti', 'family', 'love', 'legal', 'sweet', 'sacred', 'man', 'woman', 'sex', 'loyal', 'ved', 'babygirl', 'arcane', 'murder', 'kiss', 'legal', 'hostel', 'moana'];
+	const movieNameTags = ['patti', 'family', 'love', 'legal', 'sweet', 'sacred', 'man', 'woman', 'sex', 'loyal', 'ved', 'babygirl', 'arcane', 'murder', 'kiss', 'legal', 'hostel', 'moana', 'kathal'];
 	const [movieList, setMovieList] = useState([]);
 	const [loading, setLoading] = useState(true); // Manage loading state
 	const [error, setError] = useState(null); // Manage error state
 
-	const TOTAL_MOVIE_TAGS = 5;
+	const TOTAL_MOVIE_TAGS = 10;
 
 	// Function to get random elements
 	function getRandomTags(array, num) {
@@ -89,7 +89,7 @@ const HomePage = () => {
 					<div className="text-center text-red-500 font-medium">{error}</div>
 				) : movieList.length > 0 ? (
 					movieList.map((movie, index) => (
-						<Card isFooterBlurred className="col-span-12 sm:col-span-2" key={index}>
+						<Card isFooterBlurred className="col-span-12 sm:col-span-3 md:col-span-2" key={index}>
 							<CardHeader className="absolute z-10 top-1 flex-col items-start">
 								<p className="text-tiny text-white/60 uppercase font-bold">New</p>
 								{/* <h4 className="text-black font-medium text-2xl">{movie.Title}</h4> */}
