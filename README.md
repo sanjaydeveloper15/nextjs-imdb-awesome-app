@@ -78,3 +78,15 @@ If you'd like to contribute to this project, feel free to fork the repo, create 
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## ❤️ Found this project useful?
+
+If you found this project useful, then please consider giving it a ⭐️ on Github and sharing it with your friends via social media.
+
+Feel free to reach out to me through @sanjaykumarwebs if you have any questions or feedback!
+
+### Recommended / Preferred
+
+- [Visual Studio Code](https://code.visualstudio.com/download)
+- [Education Funda](https://www.youtube.com/@EducationFundaIndia)
+- [Sanjay Kumar](https://sanjaydeveloper.netlify.app/)
