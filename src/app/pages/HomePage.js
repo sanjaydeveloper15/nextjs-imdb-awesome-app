@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import MainBannerComp from '../components/MainBannerComp';
 import { Card, CardHeader, CardFooter, Image, Button, Input } from "@nextui-org/react";
 import { SearchIcon } from "../assets/svg/SearchIcon";
+import MovieCardComp from '../components/MovieCardComp';
 
 const HomePage = () => {
 	const movieNameTags = ['patti', 'family', 'love', 'legal', 'sweet', 'sacred', 'man', 'woman', 'sex', 'loyal', 'ved', 'babygirl', 'arcane', 'murder', 'kiss', 'legal', 'hostel', 'moana', 'kathal'];
@@ -89,26 +90,19 @@ const HomePage = () => {
 					<div className="text-center text-red-500 font-medium">{error}</div>
 				) : movieList.length > 0 ? (
 					movieList.map((movie, index) => (
-						<Card isFooterBlurred className="col-span-12 sm:col-span-3 md:col-span-2" key={index}>
-							<CardHeader className="absolute z-10 top-1 flex-col items-start">
-								<p className="text-tiny text-white/60 uppercase font-bold">New</p>
-								{/* <h4 className="text-black font-medium text-2xl">{movie.Title}</h4> */}
-							</CardHeader>
-							<Image
-								removeWrapper
-								alt={movie.Title}
-								className="z-0 w-full h-full scale-125 -translate-y-6 object-cover"
-								src={movie.Poster || "https://via.placeholder.com/400x600"} // Fallback if no poster
-							/>
-							<CardFooter className="bg-white/30 bottom-0 border-t-1 border-zinc-100/50 z-10 justify-between">
-								<div>
-									<h2 className="text-black text-tiny">{movie.Title}</h2>
-								</div>
-								<Button className="text-tiny" color="primary" radius="full" size="sm">
-									Notify Me
-								</Button>
-							</CardFooter>
-						</Card>
+						<MovieCardComp
+							key={index}
+							isFooterBlurred
+							className="col-span-12 sm:col-span-3 md:col-span-2"
+							header={{
+								subtitle: movie.isNew ? "New" : null,
+								title: movie.Title,
+							}}
+							imageSrc={movie.Poster}
+							altText={movie.Title}
+							footerContent={<h2 className="text-black text-tiny">{movie.Title}</h2>}
+							onButtonClick={() => alert(`Notify me for ${movie.Title}`)}
+						/>
 					))
 				) : (
 					<div className="px-8 grid grid-cols-12">
