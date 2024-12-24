@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import MainBannerComp from '../components/MainBannerComp';
-import { Card, CardHeader, CardFooter, Image, Button, Input } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
 import { SearchIcon } from "../assets/svg/SearchIcon";
 import MovieCardComp from '../components/MovieCardComp';
 
