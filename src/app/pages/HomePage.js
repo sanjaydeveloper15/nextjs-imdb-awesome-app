@@ -7,13 +7,15 @@ import { SearchIcon } from "../assets/svg/SearchIcon";
 import MovieCardComp from '../components/MovieCardComp';
 
 const HomePage = () => {
-	const movieNameTags = ['patti', 'family', 'love', 'legal', 'sweet', 'sacred', 'man', 'woman', 'sex', 'loyal', 'ved', 'babygirl', 'arcane', 'murder', 'kiss', 'legal', 'hostel', 'moana', 'kathal'];
+	const movieNameTags = ['toxic', 'baby john', 'pushpa', 'animal', 'amaran', 'jigra', 'theri', 'macro', 'devera', 'kgf', 'deadpool', 'love me', 'need you', 'kiss me', 'honey', 'sophie', 'babygirl', 'mission'];
+	const webSeriesTags = ['delhi', 'bharat', 'rajneeti', 'love me', 'threesome', 'step sis'];
 	const [movieList, setMovieList] = useState([]);
 	const [webSeriesList, setWebSeriesList] = useState([]);
 	const [loading, setLoading] = useState(true); // Manage loading state
 	const [error, setError] = useState(null); // Manage error state
 
-	const TOTAL_MOVIE_TAGS = 5;
+	const TOTAL_MOVIE_TAGS = 10;
+	const TOTAL_WEB_SERIES_TAGS = 5;
 
 	// Function to get random elements
 	function getRandomTags(array, num) {
@@ -29,7 +31,8 @@ const HomePage = () => {
 
 	// Fetch movie data when the component mounts
 	useEffect(() => {
-		const getMovieTags = getRandomTags(movieNameTags, TOTAL_MOVIE_TAGS); // Get 5 random tags
+		const getMovieTags = getRandomTags(movieNameTags, TOTAL_MOVIE_TAGS);
+		const getWebSeriesTags = getRandomTags(webSeriesTags, TOTAL_WEB_SERIES_TAGS);
 		setLoading(true);
 		setError(null); // Reset error state
 
@@ -59,8 +62,8 @@ const HomePage = () => {
 		// Fetch web series using async requests
 		const webSeries = async () => {
 			try {
-				const webSeriesPromises = getMovieTags.map((movieTag) =>
-					fetch(`https://www.omdbapi.com/?s=${movieTag}&y=2024&apikey=${process.env.NEXT_PUBLIC_API_KEY}&type=series`)
+				const webSeriesPromises = getWebSeriesTags.map((webSeriesTag) =>
+					fetch(`https://www.omdbapi.com/?s=${webSeriesTag}&y=2024&apikey=${process.env.NEXT_PUBLIC_API_KEY}&type=series`)
 						.then((res) => res.json())
 						.then((data) => data.Search || [])
 				);
