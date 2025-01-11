@@ -7,15 +7,15 @@ import { SearchIcon } from "../assets/svg/SearchIcon";
 import MovieCardComp from '../components/MovieCardComp';
 
 const HomePage = () => {
-	const movieNameTags = ['toxic', 'baby john', 'pushpa', 'animal', 'amaran', 'jigra', 'theri', 'macro', 'devera', 'kgf', 'deadpool', 'love me', 'need you', 'kiss me', 'honey', 'sophie', 'babygirl', 'mission'];
-	const webSeriesTags = ['delhi', 'bharat', 'rajneeti', 'love me', 'threesome', 'step sis'];
+	const movieNameTags = ['baby', 'pushpa', 'amaran', 'vegan', 'macro', 'dear', 'miss you', 'sweet', 'need you', 'mib international', 'babygirl', 'mission impossible', 'lucky'];
+	const webSeriesTags = ['citadel', 'banks', 'tomb raider', 'love', 'be happy', 'metro', 'money heist', 'takken', 'team player', 'love me as you can', 'success'];
 	const [movieList, setMovieList] = useState([]);
 	const [webSeriesList, setWebSeriesList] = useState([]);
 	const [loading, setLoading] = useState(true); // Manage loading state
 	const [error, setError] = useState(null); // Manage error state
 
-	const TOTAL_MOVIE_TAGS = 10;
-	const TOTAL_WEB_SERIES_TAGS = 5;
+	const TOTAL_MOVIE_TAGS = 5;
+	const TOTAL_WEB_SERIES_TAGS = 7;
 
 	// Function to get random elements
 	function getRandomTags(array, num) {
