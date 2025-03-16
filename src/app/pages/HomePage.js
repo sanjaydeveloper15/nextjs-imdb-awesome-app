@@ -7,15 +7,16 @@ import { SearchIcon } from "../assets/svg/SearchIcon";
 import MovieCardComp from '../components/MovieCardComp';
 
 const HomePage = () => {
-	const movieNameTags = ['baby', 'pushpa', 'amaran', 'vegan', 'macro', 'dear', 'miss you', 'sweet', 'need you', 'mib international', 'babygirl', 'mission impossible', 'lucky'];
-	const webSeriesTags = ['citadel', 'banks', 'tomb raider', 'love', 'be happy', 'metro', 'money heist', 'takken', 'team player', 'love me as you can', 'success'];
+	const movieNameTags = ['love', 'life', 'babe', 'hope', 'sweet'];
+	const webSeriesTags = ['teach', 'tech', 'hack', 'love', 'army', 'revenge', 'sport'];
 	const [movieList, setMovieList] = useState([]);
 	const [webSeriesList, setWebSeriesList] = useState([]);
 	const [loading, setLoading] = useState(true); // Manage loading state
 	const [error, setError] = useState(null); // Manage error state
 
-	const TOTAL_MOVIE_TAGS = 5;
-	const TOTAL_WEB_SERIES_TAGS = 7;
+	const TOTAL_MOVIE_TAGS = 3;
+	const TOTAL_WEB_SERIES_TAGS = 5;
+	const CURRENT_YEAR = (new Date()).getFullYear();
 
 	// Function to get random elements
 	function getRandomTags(array, num) {
@@ -40,7 +41,7 @@ const HomePage = () => {
 		const fetchMovies = async () => {
 			try {
 				const moviePromises = getMovieTags.map((movieTag) =>
-					fetch(`https://www.omdbapi.com/?s=${movieTag}&y=2024&apikey=${process.env.NEXT_PUBLIC_API_KEY}&type=movie`)
+					fetch(`https://www.omdbapi.com/?s=${movieTag}&y=${CURRENT_YEAR}&apikey=${process.env.NEXT_PUBLIC_API_KEY}&type=movie`)
 						.then((res) => res.json())
 						.then((data) => data.Search || [])
 				);
@@ -63,7 +64,7 @@ const HomePage = () => {
 		const webSeries = async () => {
 			try {
 				const webSeriesPromises = getWebSeriesTags.map((webSeriesTag) =>
-					fetch(`https://www.omdbapi.com/?s=${webSeriesTag}&y=2024&apikey=${process.env.NEXT_PUBLIC_API_KEY}&type=series`)
+					fetch(`https://www.omdbapi.com/?s=${webSeriesTag}&y=${CURRENT_YEAR}&apikey=${process.env.NEXT_PUBLIC_API_KEY}&type=series`)
 						.then((res) => res.json())
 						.then((data) => data.Search || [])
 				);
